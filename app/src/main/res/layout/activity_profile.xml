@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:gravity="center"
+    tools:context=".activity.ProfileActivity">
+
+    <TextView
+        android:text="Profile"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/profile_username"
+        android:hint="Username"
+        android:background="@drawable/kotak"
+        android:layout_marginTop="150dp"
+        android:paddingStart="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+    <EditText
+        android:id="@+id/profile_namalengkap"
+        android:hint="Nama Lengkap"
+        android:paddingStart="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/kotak"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+    <EditText
+        android:id="@+id/profile_tgl"
+        android:hint="Tanggal Lahir"
+        android:paddingStart="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/kotak"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+    <EditText
+        android:id="@+id/profile_alamat"
+        android:hint="Alamat"
+        android:paddingStart="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/kotak"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+    <Button
+        android:id="@+id/btn_updateprofile"
+        android:layout_marginTop="180dp"
+        android:text="Update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btn_logoutprofile"
+        android:text="Logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

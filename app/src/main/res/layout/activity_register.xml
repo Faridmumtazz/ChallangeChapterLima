@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:gravity="center"
+    tools:context=".activity.RegisterActivity">
+
+    <TextView
+        android:text="Register"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:src="@drawable/binar"
+        android:layout_width="150dp"
+        android:layout_height="100dp"/>
+    <EditText
+        android:id="@+id/input_username"
+        android:hint="Masukkan Username"
+        android:background="@drawable/kotak"
+        android:layout_marginTop="10dp"
+        android:paddingStart="15dp"
+        android:layout_width="370dp"
+        android:layout_height="50dp"/>
+    <EditText
+        android:id="@+id/input_email"
+        android:hint="Masukkan Email"
+        android:paddingStart="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/kotak"
+        android:layout_width="370dp"
+        android:layout_height="50dp"/>
+
+    <EditText
+        android:id="@+id/input_pass"
+        android:hint="Input Password"
+        android:paddingStart="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/kotak"
+        android:layout_width="370dp"
+        android:layout_height="50dp"/>
+    <EditText
+        android:id="@+id/input_ulangipass"
+        android:hint="Ulangi Password"
+        android:paddingStart="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/kotak"
+        android:layout_width="370dp"
+        android:layout_height="50dp"/>
+    <Button
+        android:id="@+id/btn_daftar"
+        android:layout_marginTop="180dp"
+        android:text="Daftar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
