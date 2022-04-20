@@ -28,6 +28,9 @@ class HomeActivity : AppCompatActivity() {
         rv_binar.layoutManager = LinearLayoutManager(this)
         rv_binar.adapter = adapterfilm
 
+        img_profile.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
 
 
         getDataFilm()
