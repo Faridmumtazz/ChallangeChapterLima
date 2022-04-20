@@ -21,30 +21,30 @@ class RegisterActivity : AppCompatActivity() {
         btn_daftar.setOnClickListener {
 
             val username = input_username.text.toString()
-            val cn = input_email.text.toString()
-            val dob = input_pass.text.toString()
-            val alamat = input_ulangipass.text.toString()
-            postDataUser(alamat, cn, dob, username)
+            val email = input_email.text.toString()
+            val pass = input_pass.text.toString()
+            val pw = input_ulangipass.text.toString()
+            postDataUser( email, pass, username)
             startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 
-    fun postDataUser(alamat : String, cn : String, dob: String, username : String) {
-        ApiClient.instance.getLogin(RequestUser(alamat, cn, dob, username))
-            .enqueue(object : Callback<List<Responseuser>>{
+    fun postDataUser( email : String, pass: String, username : String) {
+        ApiClient.instance.registerUser(email, pass, username)
+            .enqueue(object : Callback<RequestUser>{
                 override fun onResponse(
-                    call: Call<List<Responseuser>>,
-                    response: Response<List<Responseuser>>
+                    call: Call<RequestUser>,
+                    response: Response<RequestUser>
                 ) {
                     if (response.isSuccessful){
-                        Toast.makeText(this@RegisterActivity, response.message(), Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@RegisterActivity, "berhasil", Toast.LENGTH_LONG).show()
                     }else {
-                        Toast.makeText(this@RegisterActivity, "failed", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@RegisterActivity, "gagal", Toast.LENGTH_LONG).show()
                     }
                 }
 
-                override fun onFailure(call: Call<List<Responseuser>>, t: Throwable) {
-                    Toast.makeText(this@RegisterActivity, "failed", Toast.LENGTH_LONG).show()
+                override fun onFailure(call: Call<RequestUser>, t: Throwable) {
+                    Toast.makeText(this@RegisterActivity, "gagal", Toast.LENGTH_LONG).show()
                 }
 
             })

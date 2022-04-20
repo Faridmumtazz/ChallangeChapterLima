@@ -29,8 +29,8 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/et_nohp"
-            android:hint="Masukkan No Hp"
+            android:id="@+id/et_email"
+            android:hint="Masukkan Email"
             android:layout_marginTop="10dp"
 
             android:background="@drawable/kotak"
@@ -40,7 +40,7 @@
         <EditText
             android:id="@+id/et_pass"
             android:hint="Masukkan Password"
-            android:layout_below="@+id/et_nohp"
+            android:layout_below="@+id/et_email"
             android:background="@drawable/kotak"
             android:paddingStart="15dp"
             android:layout_marginTop="10dp"
