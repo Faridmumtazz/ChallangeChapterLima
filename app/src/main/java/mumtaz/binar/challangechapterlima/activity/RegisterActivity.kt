@@ -25,7 +25,9 @@ class RegisterActivity : AppCompatActivity() {
             val pass = input_pass.text.toString()
             val pw = input_ulangipass.text.toString()
             postDataUser( email, pass, username)
-            startActivity(Intent(this, LoginActivity::class.java))
+            val pindah = Intent(this, LoginActivity::class.java)
+            pindah.putExtra("updateuser", username)
+            startActivity(pindah)
         }
     }
 

@@ -1,12 +1,11 @@
 package mumtaz.binar.challangechapterlima.model
 
-
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Responseuser(
+data class UpdateUser(
     @SerializedName("id")
     val id: Int,
     @SerializedName("address")
@@ -15,10 +14,6 @@ data class Responseuser(
     val completeName: String,
     @SerializedName("dateofbirth")
     val dateofbirth: String,
-    @SerializedName("email")
-    val email: String,
-    @SerializedName("password")
-    val password: String,
     @SerializedName("username")
     val username: String
 ) : Parcelable

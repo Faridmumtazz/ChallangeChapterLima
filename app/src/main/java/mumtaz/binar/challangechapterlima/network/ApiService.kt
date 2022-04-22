@@ -1,9 +1,6 @@
 package mumtaz.binar.challangechapterlima.network
 
-import mumtaz.binar.challangechapterlima.model.GetAllFilmResponseItem
-import mumtaz.binar.challangechapterlima.model.RequestLogin
-import mumtaz.binar.challangechapterlima.model.RequestUser
-import mumtaz.binar.challangechapterlima.model.Responseuser
+import mumtaz.binar.challangechapterlima.model.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -25,5 +22,16 @@ interface ApiService {
     fun loginUser(
         @Field ("email")email : String,
         @Field ("password")password : String
-    ) : Call<RequestLogin>
+    ) : Call<Responseuser>
+
+    @POST("updateuser.php")
+    @FormUrlEncoded
+    fun updateUser(
+        @Field ("id") id : Int,
+        @Field("address") address: String,
+        @Field("complete_name") complete_name: String,
+        @Field("dateofbirth") dateofbirth: String,
+        @Field("username") username: String
+
+    ) : Call<UpdateUser>
 }
