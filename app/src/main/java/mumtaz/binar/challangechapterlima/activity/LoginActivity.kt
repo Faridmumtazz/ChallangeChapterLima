@@ -6,17 +6,20 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_login.*
 import mumtaz.binar.challangechapterlima.R
 import mumtaz.binar.challangechapterlima.model.RequestLogin
 import mumtaz.binar.challangechapterlima.model.Responseuser
 import mumtaz.binar.challangechapterlima.network.ApiClient
+import mumtaz.binar.challangechapterlima.viewmodel.ViewModelUser
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
-
+    lateinit var viewModel : ViewModelUser
     lateinit var prefs : SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,14 +32,23 @@ class LoginActivity : AppCompatActivity() {
         prefs = getSharedPreferences("DATANAMA", Context.MODE_PRIVATE)
 
         btn_masuk.setOnClickListener {
-            val email = et_email.text.toString()
-            val pass = et_pass.text.toString()
+            if (et_email.text.isNotEmpty()&& et_pass.text.isNotEmpty()){
+                viewModel = ViewModelProvider(this).get(ViewModelUser::class.java)
+                viewModel.getLiveDataObserver().observe(this, Observer {
+                    val email = et_email.text.toString()
+                    val pass = et_pass.text.toString()
 
-            val sf = prefs.edit()
-            sf.putString("NAMA", email)
-            sf.apply()
+                    val sf = prefs.edit()
+                    sf.putString("NAMA", email)
+                    sf.apply()
+                    postDataLogin(email, pass)
+                })
+            }  else{
+                Toast.makeText(this, "Gagal", Toast.LENGTH_LONG).show()
+            }
 
-            postDataLogin(email, pass)
+
+
             finish()
 
         }
@@ -53,11 +65,12 @@ class LoginActivity : AppCompatActivity() {
                         val data = response.body()
                         val sf = prefs.edit()
                         sf.putString("id", data?.id.toString())
+                        sf.putString("user", data?.username)
                         sf.apply()
                         startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
                         Toast.makeText(this@LoginActivity, "Berhasil", Toast.LENGTH_LONG).show()
                     }else {
-                        Toast.makeText(this@LoginActivity, "Gagal", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@LoginActivity, "Gagal login", Toast.LENGTH_LONG).show()
                     }
                 }
 

@@ -27,11 +27,13 @@ interface ApiService {
     @POST("updateuser.php")
     @FormUrlEncoded
     fun updateUser(
-        @Field ("id") id : Int,
+        @Field("id") id: Int,
         @Field("address") address: String,
         @Field("complete_name") complete_name: String,
-        @Field("dateofbirth") dateofbirth: String,
-        @Field("username") username: String
+        @Field("dateofbirth") dateofbirth: String
 
     ) : Call<UpdateUser>
+
+    @GET("detailuser.php")
+    fun getAllUser () : Call<Responseuser>
 }
